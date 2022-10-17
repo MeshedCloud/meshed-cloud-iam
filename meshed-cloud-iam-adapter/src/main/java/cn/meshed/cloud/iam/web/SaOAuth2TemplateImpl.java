@@ -2,6 +2,7 @@ package cn.meshed.cloud.iam.web;
 
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Template;
 import cn.dev33.satoken.oauth2.model.SaClientModel;
+import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.stereotype.Component;
 
 /**
@@ -32,7 +33,12 @@ public class SaOAuth2TemplateImpl extends SaOAuth2Template {
 		// 此为模拟数据，真实环境需要从数据库查询 
 		return "gr_SwoIN0MC1ewxHX_vfCW3BothWDZMMtx__";
 	}
-	
-	// -------------- 其它需要重写的函数 
+
+	// 重写 Access-Token 生成策略：复用登录会话的Token
+	@Override
+	public String randomAccessToken(String clientId, Object loginId, String scope) {
+		String tokenValue = StpUtil.createLoginSession(loginId);
+		return tokenValue;
+	}
 	
 }

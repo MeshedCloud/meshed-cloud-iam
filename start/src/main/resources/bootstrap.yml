@@ -41,26 +41,16 @@ spring:
           data-id: dubbo.yaml # 配置文件名-Data Id
           group: DEFAULT_GROUP   # 默认为DEFAULT_GROUP
           refresh: true   # 是否动态刷新，默认为false
-#        shared-configs[3]:
-#          data-id: security.yaml # 配置文件名-Data Id
-#          group: DEFAULT_GROUP   # 默认为DEFAULT_GROUP
-#          refresh: true   # 是否动态刷新，默认为false
+        shared-configs[3]:
+          data-id: security.yaml # 配置文件名-Data Id
+          group: DEFAULT_GROUP   # 默认为DEFAULT_GROUP
+          refresh: true   # 是否动态刷新，默认为false
         # 扩展配置
   #        extension-configs[0]:
   #          data-id: file.yaml
   #          group: DEFAULT_GROUP     # 默认为DEFAULT_GROUP
   #          refresh: true            # 是否动态刷新，默认为false
 
-sa-token:
-  # token 名称 (同时也是cookie名称)
-  token-name: Authorization
-  # 是否输出操作日志
-  is-log: true
-  oauth2:
-    is-code: true
-    is-implicit: true
-    is-password: true
-    is-client: true
 
 dubbo:
   application:

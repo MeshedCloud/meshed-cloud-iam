@@ -9,7 +9,6 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import cn.meshed.cloud.iam.domain.ability.DoLoginHandle;
 import cn.meshed.cloud.iam.domain.dto.cmd.LoginSuccessCmd;
-import cn.meshed.cloud.iam.web.stp.Oauth2StpLogic;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
@@ -39,16 +38,12 @@ public class SaOAuth2ServerController {
 	// 处理所有OAuth相关请求 
 	@RequestMapping("/oauth2/*")
 	public Object request() {
-
-
-		System.out.println("------- 进入请求: " + SaHolder.getRequest().getUrl());
 		return SaOAuth2Handle.serverRequest();
 	}
 	
 	// Sa-OAuth2 定制化配置 
 	@Autowired
 	public void setSaOAuth2Config(SaOAuth2Config cfg) {
-		StpUtil.setStpLogic(new Oauth2StpLogic());
 		cfg.
 			// 未登录的视图
 			setNotLoginView(()-> new ModelAndView("login.html")).
