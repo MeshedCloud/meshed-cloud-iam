@@ -1,0 +1,36 @@
+package cn.meshed.cloud.iam.account.executor.command;
+
+import cn.meshed.base.cqrs.CommandExecute;
+import cn.meshed.base.utils.ResultUtils;
+import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
+import cn.meshed.cloud.iam.dto.account.AccountLockCmd;
+import com.alibaba.cola.dto.Response;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+/**
+ * <h1>账号添加</h1>
+ *
+ * @author Vincent Vic
+ * @version 1.0
+ */
+@Slf4j
+@RequiredArgsConstructor
+@Component
+public class AccountLockCmdExe implements CommandExecute<AccountLockCmd, Response> {
+
+    private final AccountGateway accountGateway;
+
+    /**
+     * @param accountLockCmd
+     * @return
+     */
+    @Override
+    public Response execute(AccountLockCmd accountLockCmd) {
+        //参数校验
+
+
+        return ResultUtils.of(true);
+    }
+}

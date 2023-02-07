@@ -7,8 +7,8 @@ import cn.dev33.satoken.oauth2.logic.SaOAuth2Util;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
-import cn.meshed.cloud.iam.domain.ability.DoLoginHandle;
-import cn.meshed.cloud.iam.domain.dto.cmd.LoginSuccessCmd;
+import cn.meshed.cloud.iam.domain.account.ability.DoLoginHandle;
+import cn.meshed.cloud.iam.dto.account.data.LoginSuccessDTO;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
@@ -35,13 +35,19 @@ public class SaOAuth2ServerController {
 	private final DoLoginHandle doLoginHandle;
 
 
-	// 处理所有OAuth相关请求 
+	/**
+	 * 处理所有OAuth相关请求
+	 * @return
+	 */
 	@RequestMapping("/oauth2/*")
 	public Object request() {
 		return SaOAuth2Handle.serverRequest();
 	}
-	
-	// Sa-OAuth2 定制化配置 
+
+	/**
+	 * Sa-OAuth2 定制化配置
+	 * @param cfg
+	 */
 	@Autowired
 	public void setSaOAuth2Config(SaOAuth2Config cfg) {
 		cfg.
@@ -51,7 +57,7 @@ public class SaOAuth2ServerController {
 			setDoLoginHandle(getDoLoginHandle()).
 			// 授权确认视图 
 			setConfirmView((clientId, scope)->{
-				Map<String, Object> map = new HashMap<>();
+				Map<String, Object> map = new HashMap<>(2);
 				map.put("clientId", clientId);
 				map.put("scope", scope);
 				return new ModelAndView("confirm.html", map);
@@ -61,9 +67,9 @@ public class SaOAuth2ServerController {
 
 	private BiFunction<String, String, Object> getDoLoginHandle() {
 		return (name, pwd) -> {
-			SingleResponse<LoginSuccessCmd> response = doLoginHandle.loginHandle(name, pwd);
+			SingleResponse<LoginSuccessDTO> response = doLoginHandle.loginHandle(name, pwd);
 			if(response.isSuccess()) {
-				LoginSuccessCmd loginSuccess = response.getData();
+				LoginSuccessDTO loginSuccess = response.getData();
 				StpUtil.login(loginSuccess.getId());
 				return response;
 			}
@@ -71,7 +77,11 @@ public class SaOAuth2ServerController {
 		};
 	}
 
-	// 全局异常拦截  
+	/**
+	 * 全局异常拦截
+ 	 * @param e
+	 * @return
+	 */
 	@ExceptionHandler
 	public Response handlerException(Exception e) {
 		e.printStackTrace(); 
@@ -81,8 +91,11 @@ public class SaOAuth2ServerController {
 
 
 	// ---------- 开放相关资源接口： Client端根据 Access-Token ，置换相关资源 ------------ 
-	
-	// 获取Userinfo信息：昵称、头像、性别等等
+
+	/**
+	 * 获取Userinfo信息：昵称、头像、性别等等
+	 * @return
+	 */
 	@RequestMapping("/oauth2/userinfo")
 	public SaResult userinfo() {
 		SaTokenInfo tokenInfo = StpUtil.getTokenInfo();

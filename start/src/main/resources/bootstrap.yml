@@ -1,8 +1,7 @@
 server:
   port: 9999
-#  servlet:
-#    context-path: /iam
-
+  servlet:
+    context-path: /iam
 spring:
   application:
     name: iam
@@ -55,3 +54,7 @@ spring:
 dubbo:
   application:
     name: iam-dubbo
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
