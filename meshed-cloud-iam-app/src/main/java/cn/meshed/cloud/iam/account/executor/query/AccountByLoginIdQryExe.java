@@ -11,6 +11,7 @@ import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
 import com.alibaba.cola.dto.SingleResponse;
 import com.google.common.collect.Sets;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ import java.util.stream.Collectors;
  * @author Vincent Vic
  * @version 1.0
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class AccountByLoginIdQryExe implements CommandExecute<AccountByLoginIdQry, SingleResponse<Account>> {

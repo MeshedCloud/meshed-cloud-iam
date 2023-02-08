@@ -9,6 +9,7 @@ import cn.meshed.cloud.iam.dto.account.AccountQry;
 import cn.meshed.cloud.iam.dto.account.data.AccountDTO;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -54,7 +55,7 @@ public class AccountController {
     }
 
     @GetMapping("details")
-    public Response details(@Validated @RequestBody AccountByIdQry accountByIdQry){
+    public SingleResponse<AccountDTO> details(@Validated @RequestBody AccountByIdQry accountByIdQry){
         return accountService.query(accountByIdQry);
     }
 

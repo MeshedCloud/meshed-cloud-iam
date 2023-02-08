@@ -6,6 +6,7 @@ import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
 import cn.meshed.cloud.iam.dto.account.AccountByIdQry;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -16,6 +17,7 @@ import java.util.Set;
  * @author Vincent Vic
  * @version 1.0
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class AccountRoleIdListQryExe implements CommandExecute<AccountByIdQry, SingleResponse<Set<Long>>> {

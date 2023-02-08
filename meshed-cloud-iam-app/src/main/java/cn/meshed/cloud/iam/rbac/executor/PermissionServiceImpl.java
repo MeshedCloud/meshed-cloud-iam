@@ -6,8 +6,10 @@ import cn.meshed.cloud.iam.dto.rbac.PermissionBySelectQry;
 import cn.meshed.cloud.iam.dto.rbac.PermissionCmd;
 import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
 import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
+import cn.meshed.cloud.iam.dto.rbac.data.PermissionOptionDTO;
 import cn.meshed.cloud.iam.rbac.executor.command.PermissionCmdExe;
 import cn.meshed.cloud.iam.rbac.executor.command.PermissionDelExe;
+import cn.meshed.cloud.iam.rbac.executor.query.PermissionBySelectQryExe;
 import cn.meshed.cloud.iam.rbac.executor.query.PermissionListQryExe;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
@@ -30,6 +32,7 @@ public class PermissionServiceImpl implements PermissionService {
 
     private final PermissionCmdExe permissionCmdExe;
     private final PermissionDelExe permissionDelExe;
+    private final PermissionBySelectQryExe permissionBySelectQryExe;
     private final PermissionListQryExe permissionListQryExe;
 
 
@@ -69,8 +72,8 @@ public class PermissionServiceImpl implements PermissionService {
      * @return
      */
     @Override
-    public SingleResponse<List<PermissionDTO>> select(PermissionBySelectQry permissionBySelectQry) {
-        return null;
+    public SingleResponse<List<PermissionOptionDTO>> select(PermissionBySelectQry permissionBySelectQry) {
+        return permissionBySelectQryExe.execute(permissionBySelectQry);
     }
 
     /**

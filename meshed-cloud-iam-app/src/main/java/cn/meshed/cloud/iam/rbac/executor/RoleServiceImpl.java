@@ -8,16 +8,23 @@ import cn.meshed.cloud.iam.dto.rbac.RoleGrantPermissionCmd;
 import cn.meshed.cloud.iam.dto.rbac.RolePermissionByIdQry;
 import cn.meshed.cloud.iam.dto.rbac.RoleQry;
 import cn.meshed.cloud.iam.dto.rbac.data.RoleDTO;
+import cn.meshed.cloud.iam.dto.rbac.data.RoleOptionDTO;
 import cn.meshed.cloud.iam.rbac.executor.command.RoleCmdExe;
 import cn.meshed.cloud.iam.rbac.executor.command.RoleDelExe;
 import cn.meshed.cloud.iam.rbac.executor.command.RoleGrantPermissionCmdExe;
+import cn.meshed.cloud.iam.rbac.executor.query.RoleByIdQryExe;
+import cn.meshed.cloud.iam.rbac.executor.query.RoleBySelectQryExe;
 import cn.meshed.cloud.iam.rbac.executor.query.RoleListQryExe;
+import cn.meshed.cloud.iam.rbac.executor.query.RolePermissionByIdQryExe;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * <h1>角色操作能力</h1>
@@ -33,7 +40,19 @@ public class RoleServiceImpl implements RoleService {
     private final RoleCmdExe roleCmdExe;
     private final RoleDelExe roleDelExe;
     private final RoleListQryExe roleListQryExe;
+    private final RoleByIdQryExe roleByIdQryExe;
+    private final RoleBySelectQryExe roleBySelectQryExe;
     private final RoleGrantPermissionCmdExe roleGrantPermissionCmdExe;
+    private final RolePermissionByIdQryExe rolePermissionByIdQryExe;
+
+    /**
+     * @param roleQry
+     * @return
+     */
+    @Override
+    public SingleResponse<List<RoleDTO>> searchList(RoleQry roleQry) {
+        return roleListQryExe.execute(roleQry);
+    }
 
     /**
      * 删除
@@ -43,16 +62,6 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Response delete(Long id) {
         return roleDelExe.execute(id);
-    }
-
-    /**
-     * 分页列表查询
-     * @param roleQry 角色查询
-     * @return 分页查询
-     */
-    @Override
-    public PageResponse<RoleDTO> searchPageList(RoleQry roleQry) {
-        return roleListQryExe.execute(roleQry);
     }
 
     /**
@@ -83,8 +92,8 @@ public class RoleServiceImpl implements RoleService {
      * @return
      */
     @Override
-    public Response permissions(RolePermissionByIdQry rolePermissionByIdQry) {
-        return null;
+    public SingleResponse<Set<Long>> permissions(RolePermissionByIdQry rolePermissionByIdQry) {
+        return rolePermissionByIdQryExe.execute(rolePermissionByIdQry);
     }
 
     /**
@@ -94,8 +103,8 @@ public class RoleServiceImpl implements RoleService {
      * @return
      */
     @Override
-    public Response select(RoleBySelectQry roleBySelectQry) {
-        return null;
+    public SingleResponse<List<RoleOptionDTO>> select(RoleBySelectQry roleBySelectQry) {
+        return roleBySelectQryExe.execute(roleBySelectQry);
     }
 
     /**
@@ -104,6 +113,8 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public SingleResponse<RoleDTO> query(RoleByIdQry roleByIdQry) {
-        return null;
+        return roleByIdQryExe.execute(roleByIdQry);
     }
+
+
 }

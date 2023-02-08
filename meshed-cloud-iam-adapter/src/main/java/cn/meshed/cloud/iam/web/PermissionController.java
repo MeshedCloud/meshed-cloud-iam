@@ -6,6 +6,7 @@ import cn.meshed.cloud.iam.dto.rbac.PermissionBySelectQry;
 import cn.meshed.cloud.iam.dto.rbac.PermissionCmd;
 import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
 import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
+import cn.meshed.cloud.iam.dto.rbac.data.PermissionOptionDTO;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
@@ -39,12 +40,12 @@ public class PermissionController {
     }
 
     @GetMapping("select")
-    public SingleResponse<List<PermissionDTO>> select(PermissionBySelectQry permissionBySelectQry){
+    public SingleResponse<List<PermissionOptionDTO>> select(PermissionBySelectQry permissionBySelectQry){
         return permissionService.select(permissionBySelectQry);
     }
 
     @GetMapping("details")
-    public Response details(@Validated @RequestBody PermissionByIdQry permissionByIdQry){
+    public SingleResponse<PermissionDTO> details(@Validated @RequestBody PermissionByIdQry permissionByIdQry){
         return permissionService.query(permissionByIdQry);
     }
 

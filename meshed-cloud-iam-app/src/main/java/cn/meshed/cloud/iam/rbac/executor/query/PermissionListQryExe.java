@@ -8,6 +8,7 @@ import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
 import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
  * @author Vincent Vic
  * @version 1.0
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class PermissionListQryExe implements CommandExecute<PermissionQry, SingleResponse<List<PermissionDTO>>> {

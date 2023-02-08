@@ -6,6 +6,7 @@ import cn.meshed.cloud.iam.dto.account.LoginSuccessCmd;
 import cn.meshed.cloud.iam.dto.account.data.LoginSuccessDTO;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
  * @author Vincent Vic
  * @version 1.0
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class LoginSuccessCmdExe implements CommandExecute<LoginSuccessCmd, SingleResponse<LoginSuccessDTO>> {

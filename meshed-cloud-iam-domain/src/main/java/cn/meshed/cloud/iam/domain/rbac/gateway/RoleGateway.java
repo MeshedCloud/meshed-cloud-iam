@@ -1,13 +1,14 @@
 package cn.meshed.cloud.iam.domain.rbac.gateway;
 
 
-import cn.meshed.base.core.IPageList;
+import cn.meshed.base.core.IList;
 import cn.meshed.base.gateway.BaseGateway;
 import cn.meshed.cloud.iam.domain.rbac.Permission;
 import cn.meshed.cloud.iam.domain.rbac.Role;
 import cn.meshed.cloud.iam.dto.rbac.RoleQry;
 import com.alibaba.cola.dto.PageResponse;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Set;
  * @version 1.0
  */
 public interface RoleGateway extends BaseGateway<Role, Role, Long,Long, Boolean,Role>,
-        IPageList<RoleQry, PageResponse<Role>> {
+        IList<RoleQry, List<Role>> {
 
     /**
      * 授予角色权限
@@ -44,7 +45,6 @@ public interface RoleGateway extends BaseGateway<Role, Role, Long,Long, Boolean,
      * @return 权限集合
      */
     Set<Role> getRoleSet(Set<Long> roleIds);
-
 
 
 

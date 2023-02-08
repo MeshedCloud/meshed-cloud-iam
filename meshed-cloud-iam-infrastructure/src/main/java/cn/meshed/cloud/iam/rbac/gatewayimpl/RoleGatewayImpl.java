@@ -57,8 +57,7 @@ public class RoleGatewayImpl implements RoleGateway {
      * @return
      */
     @Override
-    public PageResponse<Role> searchPageList(RoleQry roleQry) {
-        Page<Object> page = PageUtils.startPage(roleQry.getPageIndex(), roleQry.getPageSize());
+    public List<Role> searchList(RoleQry roleQry) {
         LambdaQueryWrapper<RoleDO> lqw = new LambdaQueryWrapper<>();
         String keyword = roleQry.getKeyword();
         if (StringUtils.isNotBlank(keyword)){
@@ -67,8 +66,7 @@ public class RoleGatewayImpl implements RoleGateway {
             lqw.or().like(RoleDO::getDescription,keyword);
         }
         lqw.eq(roleQry.getStatus() != null, RoleDO::getStatus,roleQry.getStatus());
-        List<RoleDO> list = roleMapper.selectList(lqw);
-        return PageUtils.of(list,page, Role::new);
+        return CopyUtils.copyListProperties(roleMapper.selectList(lqw),Role.class);
     }
 
     /**
@@ -177,4 +175,5 @@ public class RoleGatewayImpl implements RoleGateway {
     public Role query(Long aLong) {
         return null;
     }
+
 }

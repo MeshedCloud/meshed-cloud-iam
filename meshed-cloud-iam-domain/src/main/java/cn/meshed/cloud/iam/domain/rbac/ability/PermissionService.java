@@ -7,6 +7,7 @@ import cn.meshed.cloud.iam.dto.rbac.PermissionBySelectQry;
 import cn.meshed.cloud.iam.dto.rbac.PermissionCmd;
 import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
 import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
+import cn.meshed.cloud.iam.dto.rbac.data.PermissionOptionDTO;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 
@@ -28,5 +29,5 @@ public interface PermissionService
      * @param permissionBySelectQry 查询
      * @return
      */
-    SingleResponse<List<PermissionDTO>> select(PermissionBySelectQry permissionBySelectQry);
+    SingleResponse<List<PermissionOptionDTO>> select(PermissionBySelectQry permissionBySelectQry);
 }

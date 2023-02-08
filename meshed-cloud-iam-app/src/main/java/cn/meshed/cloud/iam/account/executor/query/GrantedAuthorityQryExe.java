@@ -8,6 +8,7 @@ import cn.meshed.cloud.iam.dto.account.GrantedAuthorityQry;
 import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -18,6 +19,7 @@ import java.util.Set;
  * @author Vincent Vic
  * @version 1.0
  */
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class GrantedAuthorityQryExe implements CommandExecute<GrantedAuthorityQry, SingleResponse<Set<PermissionDTO>>> {

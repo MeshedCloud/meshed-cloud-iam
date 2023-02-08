@@ -8,8 +8,10 @@ import cn.meshed.cloud.iam.dto.rbac.RoleGrantPermissionCmd;
 import cn.meshed.cloud.iam.dto.rbac.RolePermissionByIdQry;
 import cn.meshed.cloud.iam.dto.rbac.RoleQry;
 import cn.meshed.cloud.iam.dto.rbac.data.RoleDTO;
+import cn.meshed.cloud.iam.dto.rbac.data.RoleOptionDTO;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <h1></h1>
@@ -34,17 +38,17 @@ public class RoleController {
     private final RoleService roleService;
 
     @GetMapping("list")
-    public PageResponse<RoleDTO> list(RoleQry roleQry){
-        return roleService.searchPageList(roleQry);
+    public SingleResponse<List<RoleDTO>> list(RoleQry roleQry){
+        return roleService.searchList(roleQry);
     }
 
     @GetMapping("details")
-    public Response details(@Validated @RequestBody RoleByIdQry roleByIdQry){
+    public SingleResponse<RoleDTO> details(@Validated @RequestBody RoleByIdQry roleByIdQry){
         return roleService.query(roleByIdQry);
     }
 
     @GetMapping("select")
-    public Response select(@Validated @RequestBody RoleBySelectQry roleBySelectQry){
+    public SingleResponse<List<RoleOptionDTO>> select(@Validated @RequestBody RoleBySelectQry roleBySelectQry){
         return roleService.select(roleBySelectQry);
     }
 

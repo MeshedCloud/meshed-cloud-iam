@@ -2,6 +2,7 @@ package cn.meshed.cloud.iam.account.executor.command;
 
 import cn.meshed.base.cqrs.CommandExecute;
 import cn.meshed.base.utils.ResultUtils;
+import cn.meshed.cloud.iam.domain.account.Account;
 import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
 import cn.meshed.cloud.iam.dto.account.AccountLockCmd;
 import com.alibaba.cola.dto.Response;
@@ -29,8 +30,8 @@ public class AccountLockCmdExe implements CommandExecute<AccountLockCmd, Respons
     @Override
     public Response execute(AccountLockCmd accountLockCmd) {
         //参数校验
-
-
-        return ResultUtils.of(true);
+        Account account = accountGateway.query(accountLockCmd.getId());
+        account.setLocked(accountLockCmd.isOperate());
+        return ResultUtils.of(accountGateway.save(account));
     }
 }
