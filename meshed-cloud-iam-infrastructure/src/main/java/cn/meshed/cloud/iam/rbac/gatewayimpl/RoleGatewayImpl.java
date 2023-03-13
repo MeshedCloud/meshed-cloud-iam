@@ -1,20 +1,17 @@
 package cn.meshed.cloud.iam.rbac.gatewayimpl;
 
-import cn.meshed.base.utils.CopyUtils;
+import cn.meshed.cloud.context.SecurityContext;
 import cn.meshed.cloud.iam.domain.rbac.Permission;
 import cn.meshed.cloud.iam.domain.rbac.Role;
 import cn.meshed.cloud.iam.domain.rbac.gateway.PermissionGateway;
 import cn.meshed.cloud.iam.domain.rbac.gateway.RoleGateway;
-import cn.meshed.cloud.iam.dto.rbac.RoleQry;
 import cn.meshed.cloud.iam.rbac.gatewayimpl.database.dataobject.RoleDO;
 import cn.meshed.cloud.iam.rbac.gatewayimpl.database.dataobject.RolePermissionDO;
 import cn.meshed.cloud.iam.rbac.gatewayimpl.database.mapper.RoleMapper;
 import cn.meshed.cloud.iam.rbac.gatewayimpl.database.mapper.RolePermissionMapper;
-import cn.meshed.cloud.utils.PageUtils;
-import cn.meshed.context.SecurityContext;
-import com.alibaba.cola.dto.PageResponse;
+import cn.meshed.cloud.iam.rbac.query.RoleQry;
+import cn.meshed.cloud.utils.CopyUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.github.pagehelper.Page;
 import com.google.common.collect.Sets;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;

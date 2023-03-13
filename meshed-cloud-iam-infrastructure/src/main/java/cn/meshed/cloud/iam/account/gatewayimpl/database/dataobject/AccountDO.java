@@ -1,6 +1,7 @@
 package cn.meshed.cloud.iam.account.gatewayimpl.database.dataobject;
 
-import cn.meshed.base.constant.Status;
+import cn.meshed.cloud.constant.Status;
+import cn.meshed.cloud.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,9 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -26,7 +24,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("m_account")
-public class AccountDO implements Serializable {
+public class AccountDO extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -87,26 +85,5 @@ public class AccountDO implements Serializable {
      */
     @TableField(value = "status")
     private Status status;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
-
 
 }

@@ -1,12 +1,12 @@
 package cn.meshed.cloud.iam.rbac.gatewayimpl;
 
-import cn.meshed.base.utils.CopyUtils;
+import cn.meshed.cloud.context.SecurityContext;
 import cn.meshed.cloud.iam.domain.rbac.Permission;
 import cn.meshed.cloud.iam.domain.rbac.gateway.PermissionGateway;
-import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
 import cn.meshed.cloud.iam.rbac.gatewayimpl.database.dataobject.PermissionDO;
 import cn.meshed.cloud.iam.rbac.gatewayimpl.database.mapper.PermissionMapper;
-import cn.meshed.context.SecurityContext;
+import cn.meshed.cloud.iam.rbac.query.PermissionQry;
+import cn.meshed.cloud.utils.CopyUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.google.common.collect.Sets;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static cn.meshed.base.constant.CommonConstant.DEFAULT_PARENT_NODE;
+import static cn.meshed.cloud.constant.CommonConstant.DEFAULT_PARENT_NODE;
 
 /**
  * <h1>权限处理网关</h1>

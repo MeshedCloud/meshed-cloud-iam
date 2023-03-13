@@ -1,6 +1,6 @@
 package cn.meshed.cloud.iam.domain.rbac;
 
-import cn.meshed.base.constant.Status;
+import cn.meshed.cloud.constant.Status;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

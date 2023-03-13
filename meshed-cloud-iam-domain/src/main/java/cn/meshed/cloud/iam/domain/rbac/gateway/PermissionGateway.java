@@ -1,10 +1,10 @@
 package cn.meshed.cloud.iam.domain.rbac.gateway;
 
 
-import cn.meshed.base.core.IList;
-import cn.meshed.base.gateway.BaseGateway;
+import cn.meshed.cloud.core.IList;
+import cn.meshed.cloud.gateway.BaseGateway;
 import cn.meshed.cloud.iam.domain.rbac.Permission;
-import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
+import cn.meshed.cloud.iam.rbac.query.PermissionQry;
 
 import java.util.List;
 import java.util.Set;

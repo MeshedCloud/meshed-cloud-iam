@@ -1,12 +1,12 @@
 package cn.meshed.cloud.iam.rbac.executor.query;
 
-import cn.meshed.base.constant.Status;
-import cn.meshed.base.cqrs.CommandExecute;
-import cn.meshed.base.utils.ResultUtils;
+import cn.meshed.cloud.constant.Status;
+import cn.meshed.cloud.cqrs.CommandExecute;
 import cn.meshed.cloud.iam.domain.rbac.gateway.PermissionGateway;
-import cn.meshed.cloud.iam.dto.rbac.PermissionBySelectQry;
-import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
-import cn.meshed.cloud.iam.dto.rbac.data.PermissionOptionDTO;
+import cn.meshed.cloud.iam.rbac.data.PermissionOptionDTO;
+import cn.meshed.cloud.iam.rbac.query.PermissionBySelectQry;
+import cn.meshed.cloud.iam.rbac.query.PermissionQry;
+import cn.meshed.cloud.utils.ResultUtils;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,11 +1,11 @@
 package cn.meshed.cloud.iam.domain.account.gateway;
 
-import cn.meshed.base.core.IPageList;
-import cn.meshed.base.gateway.BaseGateway;
+import cn.meshed.cloud.core.IPageList;
+import cn.meshed.cloud.gateway.BaseGateway;
+import cn.meshed.cloud.iam.account.query.AccountQry;
 import cn.meshed.cloud.iam.domain.account.Account;
 import cn.meshed.cloud.iam.domain.rbac.Permission;
 import cn.meshed.cloud.iam.domain.rbac.Role;
-import cn.meshed.cloud.iam.dto.account.AccountQry;
 import com.alibaba.cola.dto.PageResponse;
 
 import java.util.Set;

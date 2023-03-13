@@ -1,14 +1,12 @@
 package cn.meshed.cloud.iam.rbac.gatewayimpl.database.dataobject;
 
-import cn.meshed.base.constant.Status;
+import cn.meshed.cloud.constant.Status;
+import cn.meshed.cloud.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -21,7 +19,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("m_permission")
-public class PermissionDO implements Serializable {
+public class PermissionDO extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -63,26 +61,6 @@ public class PermissionDO implements Serializable {
      * 备注
      */
     private String description;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
 
 
 }

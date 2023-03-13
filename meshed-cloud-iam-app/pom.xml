@@ -32,8 +32,8 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.meshed.base</groupId>
-            <artifactId>meshed-cloud-common-starter</artifactId>
+            <groupId>cn.meshed.cloud</groupId>
+            <artifactId>meshed-cloud-common</artifactId>
         </dependency>
 
         <dependency>

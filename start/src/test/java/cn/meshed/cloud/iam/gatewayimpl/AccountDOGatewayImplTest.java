@@ -1,9 +1,9 @@
 package cn.meshed.cloud.iam.gatewayimpl;
 
 import cn.meshed.cloud.iam.ProviderApplication;
+import cn.meshed.cloud.iam.account.query.AccountQry;
 import cn.meshed.cloud.iam.domain.account.Account;
 import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
-import cn.meshed.cloud.iam.dto.account.AccountQry;
 import com.alibaba.cola.dto.PageResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

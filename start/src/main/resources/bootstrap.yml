@@ -1,8 +1,12 @@
 server:
-  port: 9999
+  port: ${PORT:9999}
   servlet:
     context-path: /iam
 spring:
+  profiles:
+    active: ${ACTIVE:dev}
+    include:
+      mq
   application:
     name: iam
   cloud:
@@ -10,7 +14,7 @@ spring:
       #服务发现
       discovery:
         enabled: true
-        server-addr: nacos.meshed.cn:8848
+        server-addr: ${NACOS_HOST:localhost}:${NACOS_PORT:8848}
         namespace: meshed-cloud
         metadata:
           management:
@@ -19,7 +23,7 @@ spring:
       config:
         enabled: true
         # 配置中心地址
-        server-addr: nacos.meshed.cn:8848
+        server-addr: ${NACOS_HOST:localhost}:${NACOS_PORT:8848}
         # 配置文件格式
         file-extension: yaml
         # 服务命名空间
@@ -54,7 +58,3 @@ spring:
 dubbo:
   application:
     name: iam-dubbo
-mybatis-plus:
-  configuration:
-    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
-

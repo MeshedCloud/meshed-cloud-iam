@@ -1,15 +1,14 @@
 package cn.meshed.cloud.iam.web;
 
 import cn.meshed.cloud.iam.domain.rbac.ability.RoleService;
-import cn.meshed.cloud.iam.dto.rbac.RoleByIdQry;
-import cn.meshed.cloud.iam.dto.rbac.RoleBySelectQry;
-import cn.meshed.cloud.iam.dto.rbac.RoleCmd;
-import cn.meshed.cloud.iam.dto.rbac.RoleGrantPermissionCmd;
-import cn.meshed.cloud.iam.dto.rbac.RolePermissionByIdQry;
-import cn.meshed.cloud.iam.dto.rbac.RoleQry;
-import cn.meshed.cloud.iam.dto.rbac.data.RoleDTO;
-import cn.meshed.cloud.iam.dto.rbac.data.RoleOptionDTO;
-import com.alibaba.cola.dto.PageResponse;
+import cn.meshed.cloud.iam.rbac.command.RoleCmd;
+import cn.meshed.cloud.iam.rbac.command.RoleGrantPermissionCmd;
+import cn.meshed.cloud.iam.rbac.data.RoleDTO;
+import cn.meshed.cloud.iam.rbac.data.RoleOptionDTO;
+import cn.meshed.cloud.iam.rbac.query.RoleByIdQry;
+import cn.meshed.cloud.iam.rbac.query.RoleBySelectQry;
+import cn.meshed.cloud.iam.rbac.query.RolePermissionByIdQry;
+import cn.meshed.cloud.iam.rbac.query.RoleQry;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package cn.meshed.cloud.iam.domain.account.ability;
 
-import cn.meshed.cloud.iam.dto.account.data.LoginSuccessDTO;
+import cn.meshed.cloud.iam.account.data.LoginSuccessDTO;
 import com.alibaba.cola.dto.SingleResponse;
 
 /**

@@ -1,11 +1,11 @@
 package cn.meshed.cloud.iam.account.executor.query;
 
-import cn.meshed.base.cqrs.CommandExecute;
-import cn.meshed.base.utils.ResultUtils;
+import cn.meshed.cloud.cqrs.CommandExecute;
+import cn.meshed.cloud.iam.account.data.AccountDTO;
+import cn.meshed.cloud.iam.account.query.AccountByIdQry;
 import cn.meshed.cloud.iam.domain.account.Account;
 import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
-import cn.meshed.cloud.iam.dto.account.AccountByIdQry;
-import cn.meshed.cloud.iam.dto.account.data.AccountDTO;
+import cn.meshed.cloud.utils.ResultUtils;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

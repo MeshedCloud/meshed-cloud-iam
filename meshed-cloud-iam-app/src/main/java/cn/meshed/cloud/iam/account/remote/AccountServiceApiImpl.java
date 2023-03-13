@@ -1,15 +1,15 @@
 package cn.meshed.cloud.iam.account.remote;
 
-import cn.meshed.base.utils.ResultUtils;
+import cn.meshed.cloud.iam.account.AccountServiceRpc;
+import cn.meshed.cloud.iam.account.data.AccountDTO;
+import cn.meshed.cloud.iam.account.data.GrantedAuthorityDTO;
 import cn.meshed.cloud.iam.account.executor.query.AccountByLoginIdQryExe;
 import cn.meshed.cloud.iam.account.executor.query.GrantedAuthorityQryExe;
-import cn.meshed.cloud.iam.api.AccountServiceApi;
+import cn.meshed.cloud.iam.account.query.AccountByLoginIdQry;
+import cn.meshed.cloud.iam.account.query.GrantedAuthorityQry;
 import cn.meshed.cloud.iam.domain.account.Account;
-import cn.meshed.cloud.iam.dto.account.AccountByLoginIdQry;
-import cn.meshed.cloud.iam.dto.account.GrantedAuthorityQry;
-import cn.meshed.cloud.iam.dto.account.data.AccountDTO;
-import cn.meshed.cloud.iam.dto.account.data.GrantedAuthorityDTO;
-import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
+import cn.meshed.cloud.iam.rbac.data.PermissionDTO;
+import cn.meshed.cloud.utils.ResultUtils;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -24,7 +24,7 @@ import java.util.Set;
  */
 @DubboService
 @RequiredArgsConstructor
-public class AccountServiceApiImpl implements AccountServiceApi {
+public class AccountServiceApiImpl implements AccountServiceRpc {
 
     private final AccountByLoginIdQryExe accountByLoginIdQryExe;
     private final GrantedAuthorityQryExe grantedAuthorityQryExe;

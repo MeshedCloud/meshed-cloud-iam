@@ -1,12 +1,12 @@
 package cn.meshed.cloud.iam.web;
 
 import cn.meshed.cloud.iam.domain.rbac.ability.PermissionService;
-import cn.meshed.cloud.iam.dto.rbac.PermissionByIdQry;
-import cn.meshed.cloud.iam.dto.rbac.PermissionBySelectQry;
-import cn.meshed.cloud.iam.dto.rbac.PermissionCmd;
-import cn.meshed.cloud.iam.dto.rbac.PermissionQry;
-import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
-import cn.meshed.cloud.iam.dto.rbac.data.PermissionOptionDTO;
+import cn.meshed.cloud.iam.rbac.command.PermissionCmd;
+import cn.meshed.cloud.iam.rbac.data.PermissionDTO;
+import cn.meshed.cloud.iam.rbac.data.PermissionOptionDTO;
+import cn.meshed.cloud.iam.rbac.query.PermissionByIdQry;
+import cn.meshed.cloud.iam.rbac.query.PermissionBySelectQry;
+import cn.meshed.cloud.iam.rbac.query.PermissionQry;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;

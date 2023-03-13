@@ -1,13 +1,13 @@
 package cn.meshed.cloud.iam.account.executor.command;
 
-import cn.meshed.base.cqrs.CommandExecute;
-import cn.meshed.base.utils.CopyUtils;
-import cn.meshed.base.utils.ResultUtils;
+import cn.meshed.cloud.cqrs.CommandExecute;
+import cn.meshed.cloud.iam.account.command.AccountAddCmd;
+import cn.meshed.cloud.iam.account.command.PasswordBuildCmd;
 import cn.meshed.cloud.iam.domain.account.Account;
 import cn.meshed.cloud.iam.domain.account.ability.EncryptionService;
 import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
-import cn.meshed.cloud.iam.dto.account.AccountAddCmd;
-import cn.meshed.cloud.iam.dto.account.PasswordBuildCmd;
+import cn.meshed.cloud.utils.CopyUtils;
+import cn.meshed.cloud.utils.ResultUtils;
 import com.alibaba.cola.dto.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

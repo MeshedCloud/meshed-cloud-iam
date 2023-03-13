@@ -1,13 +1,13 @@
 package cn.meshed.cloud.iam.account.executor.query;
 
 
-import cn.meshed.base.cqrs.CommandExecute;
+import cn.meshed.cloud.cqrs.CommandExecute;
+import cn.meshed.cloud.iam.account.data.AccountDTO;
+import cn.meshed.cloud.iam.account.query.AccountByLoginIdQry;
+import cn.meshed.cloud.iam.account.query.GrantedAuthorityQry;
 import cn.meshed.cloud.iam.domain.account.Account;
 import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
-import cn.meshed.cloud.iam.dto.account.AccountByLoginIdQry;
-import cn.meshed.cloud.iam.dto.account.GrantedAuthorityQry;
-import cn.meshed.cloud.iam.dto.account.data.AccountDTO;
-import cn.meshed.cloud.iam.dto.rbac.data.PermissionDTO;
+import cn.meshed.cloud.iam.rbac.data.PermissionDTO;
 import com.alibaba.cola.dto.SingleResponse;
 import com.google.common.collect.Sets;
 import lombok.RequiredArgsConstructor;

@@ -97,16 +97,8 @@
             </dependency>
 
             <dependency>
-                <groupId>cn.meshed.base</groupId>
-                <artifactId>meshed-cloud-cola-bom</artifactId>
-                <version>${meshed.cola.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>cn.meshed.base</groupId>
-                <artifactId>meshed-cloud-common-starter</artifactId>
+                <groupId>cn.meshed.cloud</groupId>
+                <artifactId>meshed-cloud-common</artifactId>
                 <version>${meshed.common.version}</version>
             </dependency>
             <dependency>
@@ -115,8 +107,8 @@
                 <version>${meshed.mysql.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.meshed.base</groupId>
-                <artifactId>meshed-cloud-cqrs-starter</artifactId>
+                <groupId>cn.meshed.cloud</groupId>
+                <artifactId>meshed-cloud-cqrs</artifactId>
                 <version>${meshed.cqrs.version}</version>
             </dependency>
             <dependency>
@@ -125,15 +117,9 @@
                 <version>${meshed.dubbo.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.meshed.context</groupId>
+                <groupId>cn.meshed.cloud</groupId>
                 <artifactId>meshed-cloud-context-starter</artifactId>
                 <version>${meshed.context.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>5.3.22</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>
