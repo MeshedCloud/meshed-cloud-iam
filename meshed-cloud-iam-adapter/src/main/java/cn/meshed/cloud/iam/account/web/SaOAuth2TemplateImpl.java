@@ -1,4 +1,4 @@
-package cn.meshed.cloud.iam.web;
+package cn.meshed.cloud.iam.account.web;
 
 import cn.dev33.satoken.oauth2.logic.SaOAuth2Template;
 import cn.dev33.satoken.oauth2.model.SaClientModel;

@@ -1,7 +1,7 @@
 package cn.meshed.cloud.iam.account.executor.query;
 
 
-import cn.meshed.cloud.cqrs.CommandExecute;
+import cn.meshed.cloud.cqrs.QueryExecute;
 import cn.meshed.cloud.iam.account.data.AccountDTO;
 import cn.meshed.cloud.iam.account.query.AccountByLoginIdQry;
 import cn.meshed.cloud.iam.account.query.GrantedAuthorityQry;
@@ -28,13 +28,14 @@ import java.util.stream.Collectors;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class AccountByLoginIdQryExe implements CommandExecute<AccountByLoginIdQry, SingleResponse<Account>> {
+public class AccountByLoginIdQryExe implements QueryExecute<AccountByLoginIdQry, SingleResponse<Account>> {
 
     private final AccountGateway accountGateway;
     private final GrantedAuthorityQryExe grantedAuthorityQryExe;
 
     /**
      * <h2>查询执行器</h2>
+     *
      * @param accountByLoginIdQry 请求对象
      * @return {@link AccountDTO}
      */

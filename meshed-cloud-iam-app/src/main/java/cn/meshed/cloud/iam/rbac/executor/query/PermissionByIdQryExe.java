@@ -1,17 +1,14 @@
 package cn.meshed.cloud.iam.rbac.executor.query;
 
 import cn.meshed.cloud.cqrs.QueryExecute;
-import cn.meshed.cloud.iam.domain.rbac.Permission;
 import cn.meshed.cloud.iam.domain.rbac.gateway.PermissionGateway;
 import cn.meshed.cloud.iam.rbac.data.PermissionDTO;
-import cn.meshed.cloud.iam.rbac.query.PermissionQry;
+import cn.meshed.cloud.utils.AssertUtils;
 import cn.meshed.cloud.utils.ResultUtils;
-import com.alibaba.cola.dto.MultiResponse;
+import com.alibaba.cola.dto.SingleResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * <h1></h1>
@@ -22,17 +19,20 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class PermissionListQryExe implements QueryExecute<PermissionQry, MultiResponse<PermissionDTO>> {
+public class PermissionByIdQryExe implements QueryExecute<Long, SingleResponse<PermissionDTO>> {
 
     private final PermissionGateway permissionGateway;
 
+
     /**
-     * @param permissionQry
-     * @return
+     * <h1>查询执行器</h1>
+     *
+     * @param permissionId 权限编码
+     * @return {@link SingleResponse<PermissionDTO>}
      */
     @Override
-    public MultiResponse<PermissionDTO> execute(PermissionQry permissionQry) {
-        List<Permission> permissionVOList = permissionGateway.searchList(permissionQry);
-        return ResultUtils.copyMulti(permissionVOList, PermissionDTO::new);
+    public SingleResponse<PermissionDTO> execute(Long permissionId) {
+        AssertUtils.isTrue(permissionId != null, "权限编码不能为空");
+        return ResultUtils.copy(permissionGateway.query(permissionId), PermissionDTO.class);
     }
 }
