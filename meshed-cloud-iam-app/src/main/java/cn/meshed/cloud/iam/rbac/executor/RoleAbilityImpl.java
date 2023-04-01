@@ -51,6 +51,7 @@ public class RoleAbilityImpl implements RoleAbility {
 
     /**
      * 删除
+     *
      * @param id id
      * @return 删除结果
      */
@@ -61,6 +62,7 @@ public class RoleAbilityImpl implements RoleAbility {
 
     /**
      * 保存
+     *
      * @param roleCmd 保存对象
      * @return 操作结果
      */

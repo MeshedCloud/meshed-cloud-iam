@@ -38,6 +38,7 @@ public class PermissionAbilityImpl implements PermissionAbility {
 
     /**
      * 删除
+     *
      * @param id id
      * @return 操作结果
      */
@@ -48,6 +49,7 @@ public class PermissionAbilityImpl implements PermissionAbility {
 
     /**
      * 保存
+     *
      * @param permissionCmd 保存对象
      * @return 操作结果
      */

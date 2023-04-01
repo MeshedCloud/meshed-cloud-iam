@@ -42,11 +42,11 @@ public class AccountByLoginIdQryExe implements QueryExecute<AccountByLoginIdQry,
     @Override
     public SingleResponse<Account> execute(AccountByLoginIdQry accountByLoginIdQry) {
         String loginId = accountByLoginIdQry.getLoginId();
-        if (StringUtils.isBlank(loginId)){
+        if (StringUtils.isBlank(loginId)) {
             return null;
         }
         Account account = accountGateway.getAccountByLoginId(loginId);
-        if (account == null){
+        if (account == null) {
             return null;
         }
 
@@ -60,7 +60,7 @@ public class AccountByLoginIdQryExe implements QueryExecute<AccountByLoginIdQry,
         GrantedAuthorityQry grantedAuthorityQry = new GrantedAuthorityQry();
         grantedAuthorityQry.setAccountId(account.getId());
         SingleResponse<Set<PermissionDTO>> response = grantedAuthorityQryExe.execute(grantedAuthorityQry);
-        if (!response.isSuccess() || CollectionUtils.isEmpty(response.getData())){
+        if (!response.isSuccess() || CollectionUtils.isEmpty(response.getData())) {
             return Sets.newHashSet();
         }
         return response.getData().stream().map(PermissionDTO::getEnname).collect(Collectors.toSet());

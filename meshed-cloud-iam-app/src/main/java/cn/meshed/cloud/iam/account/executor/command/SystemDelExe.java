@@ -1,7 +1,7 @@
 package cn.meshed.cloud.iam.account.executor.command;
 
 import cn.meshed.cloud.cqrs.CommandExecute;
-import cn.meshed.cloud.iam.domain.account.gateway.AccountGateway;
+import cn.meshed.cloud.iam.domain.account.gateway.SystemGateway;
 import cn.meshed.cloud.utils.ResultUtils;
 import com.alibaba.cola.dto.Response;
 import lombok.RequiredArgsConstructor;
@@ -17,16 +17,18 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class AccountDelExe implements CommandExecute<Long, Response> {
+public class SystemDelExe implements CommandExecute<Integer, Response> {
 
-    private final AccountGateway accountGateway;
+    private final SystemGateway systemGateway;
 
     /**
-     * @param id
-     * @return
+     * <h1>执行器</h1>
+     *
+     * @param systemId 系统编码
+     * @return {@link Response}
      */
     @Override
-    public Response execute(Long id) {
-        return ResultUtils.of(accountGateway.delete(id), "删除账号失败");
+    public Response execute(Integer systemId) {
+        return ResultUtils.of(systemGateway.delete(systemId));
     }
 }

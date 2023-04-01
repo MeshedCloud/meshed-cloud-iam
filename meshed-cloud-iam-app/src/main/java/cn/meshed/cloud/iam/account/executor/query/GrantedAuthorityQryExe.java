@@ -33,6 +33,6 @@ public class GrantedAuthorityQryExe implements QueryExecute<GrantedAuthorityQry,
     @Override
     public SingleResponse<Set<PermissionDTO>> execute(GrantedAuthorityQry grantedAuthorityQry) {
         Set<Permission> grantedAuthority = accountGateway.getGrantedAuthority(grantedAuthorityQry.getAccountId());
-        return ResultUtils.copySet(grantedAuthority,PermissionDTO::new);
+        return ResultUtils.copySet(grantedAuthority, PermissionDTO::new);
     }
 }
