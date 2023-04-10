@@ -11,6 +11,7 @@ VOLUME /tmp/iam
 #应用构建成功后的jar文件被复制到镜像内，名字也改成了app.jar
 ADD start/target/*.jar app.jar
 
+
 #启动容器时的进程
 ENTRYPOINT ["java","-jar","/app.jar"]
 
